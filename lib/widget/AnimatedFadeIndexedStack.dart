@@ -33,7 +33,13 @@ class _AnimatedFadeIndexedStackState extends State<AnimatedFadeIndexedStack> wit
     }
     super.didUpdateWidget(oldWidget);
   }
-  
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(
