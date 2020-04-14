@@ -31,7 +31,7 @@ class BookDetailPage extends StatelessWidget {
               child: Icon(Icons.arrow_back, size: 25,),
             ),
             trailing: InkWell(
-              borderRadius: BorderRadius.circular(5),
+              borderRadius: BorderRadius.circular(30),
               onTap: () {},
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 7, vertical: 3),
