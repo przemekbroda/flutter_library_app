@@ -4,6 +4,7 @@ import 'package:library_flutter_app/helper/CustomColors.dart';
 import 'package:library_flutter_app/provider/BooksProvider.dart';
 import 'package:library_flutter_app/provider/CartProvider.dart';
 import 'package:library_flutter_app/widget/BlackButton.dart';
+import 'package:library_flutter_app/widget/BookPedestal.dart';
 import 'package:library_flutter_app/widget/CustomAppBar.dart';
 import 'package:library_flutter_app/widget/DotsIcon.dart';
 import 'package:library_flutter_app/widget/FillBar.dart';
@@ -15,7 +16,8 @@ class BookDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var bookIndex = ModalRoute.of(context).settings.arguments as int;
-    var book = Provider.of<BooksProvider>(context, listen: false).books[bookIndex];
+    var book =
+        Provider.of<BooksProvider>(context, listen: false).books[bookIndex];
     Provider.of<CartProvider>(context, listen: false).isInCart(book);
 
     return Scaffold(
@@ -28,7 +30,10 @@ class BookDetailPage extends StatelessWidget {
               onTap: () {
                 Navigator.of(context).pop();
               },
-              child: Icon(Icons.arrow_back, size: 25,),
+              child: Icon(
+                Icons.arrow_back,
+                size: 25,
+              ),
             ),
             trailing: InkWell(
               borderRadius: BorderRadius.circular(30),
@@ -38,12 +43,17 @@ class BookDetailPage extends StatelessWidget {
                 child: Container(
                   height: 15,
                   child: FittedBox(
-                    child: DotsIcon(dotsColor: CustomColors.black,),
+                    child: DotsIcon(
+                      dotsColor: CustomColors.black,
+                    ),
                   ),
                 ),
               ),
             ),
-            center: Text('Detail Book', style: GoogleFonts.abrilFatface(fontSize: 18),),
+            center: Text(
+              'Detail Book',
+              style: GoogleFonts.abrilFatface(fontSize: 18),
+            ),
           ),
           Expanded(
             child: ScrollConfiguration(
@@ -58,18 +68,15 @@ class BookDetailPage extends StatelessWidget {
                       Container(
                         height: 325,
                         width: double.infinity,
-                        child: Hero(
-                            tag: book.cover,
-                            child: Image.asset(
-                              book.cover,
-                              fit: BoxFit.contain,
-                            )),
+                        padding: EdgeInsets.symmetric(horizontal: 35),
+                        child: BookPedestal(
+                          image: AssetImage(book.cover),
+                          heroTag: book.cover,
+                        ),
                       ),
-
                       SizedBox(
                         height: 40,
                       ),
-
                       Hero(
                         tag: book.title,
                         child: Material(
@@ -81,11 +88,9 @@ class BookDetailPage extends StatelessWidget {
                           ),
                         ),
                       ),
-
                       SizedBox(
                         height: 10,
                       ),
-
                       Hero(
                         tag: book.author,
                         child: Material(
@@ -93,15 +98,14 @@ class BookDetailPage extends StatelessWidget {
                           child: Text(
                             book.author,
                             style: TextStyle(
-                                color: Colors.grey, fontWeight: FontWeight.bold),
+                                color: Colors.grey,
+                                fontWeight: FontWeight.bold),
                           ),
                         ),
                       ),
-
                       SizedBox(
                         height: 15,
                       ),
-
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
@@ -121,11 +125,9 @@ class BookDetailPage extends StatelessWidget {
                           ),
                         ],
                       ),
-
                       SizedBox(
                         height: 20,
                       ),
-
                       Text(
                         book.description,
                         style: TextStyle(
@@ -133,38 +135,37 @@ class BookDetailPage extends StatelessWidget {
                             letterSpacing: 0.4,
                             height: 1.6),
                       ),
-
                       SizedBox(
                         height: 45,
                       ),
-
                       Container(
                           width: double.infinity,
-                          child: BlackButton(
-                              onPressed: () {
-                                var provider = Provider.of<CartProvider>(context, listen: false);
-                                if (provider.isInCart(book)) {
-                                  provider.removeFromCart(book);
-                                } else {
-                                  provider.addToCart(book);
-                                }
-                              },
-                              child: Consumer<CartProvider>(
-                                  builder: (_, cart, child) {
-                                    var isInCart = cart.isInCart(book);
+                          child: BlackButton(onPressed: () {
+                            var provider = Provider.of<CartProvider>(context,
+                                listen: false);
+                            if (provider.isInCart(book)) {
+                              provider.removeFromCart(book);
+                            } else {
+                              provider.addToCart(book);
+                            }
+                          }, child:
+                              Consumer<CartProvider>(builder: (_, cart, child) {
+                            var isInCart = cart.isInCart(book);
 
-                                    return AnimatedSwitcher(
-                                      duration: Duration(milliseconds: 100),
-                                      child: Text(
-                                        cart.isInCart(book) ? 'Remove from cart' : 'Add to cart',
-                                        key: ValueKey(isInCart),
-                                        style: TextStyle(color: Colors.white, fontSize: 17, letterSpacing: 0.5),
-                                      ),
-                                    );
-                                  }
-                              )
-                          )
-                      ),
+                            return AnimatedSwitcher(
+                              duration: Duration(milliseconds: 100),
+                              child: Text(
+                                cart.isInCart(book)
+                                    ? 'Remove from cart'
+                                    : 'Add to cart',
+                                key: ValueKey(isInCart),
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 17,
+                                    letterSpacing: 0.5),
+                              ),
+                            );
+                          }))),
                       SizedBox(
                         height: 45,
                       ),

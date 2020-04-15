@@ -17,9 +17,12 @@ class BooksListItem extends StatelessWidget {
             flex: 3,
             child: Hero(
               tag: book.cover,
-              child: Image.asset(
-                book.cover,
-                fit: BoxFit.cover,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(5),
+                child: Image.asset(
+                  book.cover,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
           ),

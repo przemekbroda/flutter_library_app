@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:library_flutter_app/helper/CustomColors.dart';
+import 'package:library_flutter_app/widget/BookPedestal.dart';
 
 import 'DotsIcon.dart';
 import 'FillBar.dart';
@@ -45,7 +46,7 @@ class BooksCard extends StatelessWidget {
                 child: Material(
                   color: Colors.transparent,
                   child: Padding(
-                    padding: const EdgeInsets.only(left: 80, right: 80, top: 16, bottom: 20),
+                    padding: const EdgeInsets.only(left: 120, right: 120, top: 16, bottom: 20),
                     child: InkWell(
                       borderRadius: BorderRadius.circular(100),
                       child: Container(
@@ -70,7 +71,7 @@ class BooksCard extends StatelessWidget {
                     child: Container(
                       width: 115,
                       height: 130,
-                      child: Image.asset('assets/images/justmytype.jpg', fit: BoxFit.contain,),
+                      child: BookPedestal(image: AssetImage('assets/images/justmytype.jpg'), bookBorderRadius: BorderRadius.circular(3), ),
                     ),
                   ),
                   SizedBox(width: 14,),
