@@ -34,7 +34,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   @override
   void initState() {
     _animationController = AnimationController(vsync: this, duration: Duration(milliseconds: 300));
-    _offsetAnimation = Tween<double>(begin: 235, end: 0).animate(CurvedAnimation(parent: _animationController, curve: Curves.decelerate));
+    _offsetAnimation = Tween<double>(begin: 235, end: 0).animate(CurvedAnimation(parent: _animationController, curve: Curves.easeInOut));
 
     super.initState();
   }
