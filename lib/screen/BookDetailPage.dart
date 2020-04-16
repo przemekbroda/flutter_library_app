@@ -15,10 +15,11 @@ class BookDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var bookIndex = ModalRoute.of(context).settings.arguments as int;
-    var book =
-        Provider.of<BooksProvider>(context, listen: false).books[bookIndex];
-    Provider.of<CartProvider>(context, listen: false).isInCart(book);
+    var arguments = (ModalRoute.of(context).settings.arguments as Map<String, dynamic>);
+    var bookId = arguments['bookId'] as int;
+    var heroSuffix = arguments['heroSuffix'];
+
+    var book = Provider.of<BooksProvider>(context, listen: false).getBookById(bookId);
 
     return Scaffold(
       backgroundColor: CustomColors.backgroundColor,
@@ -71,14 +72,14 @@ class BookDetailPage extends StatelessWidget {
                         padding: EdgeInsets.symmetric(horizontal: 35),
                         child: BookPedestal(
                           image: AssetImage(book.cover),
-                          heroTag: book.cover,
+                          heroTag: '${book.cover}$heroSuffix',
                         ),
                       ),
                       SizedBox(
                         height: 40,
                       ),
                       Hero(
-                        tag: book.title,
+                        tag: '${book.title}$heroSuffix',
                         child: Material(
                           color: Colors.transparent,
                           child: Text(
@@ -92,7 +93,7 @@ class BookDetailPage extends StatelessWidget {
                         height: 10,
                       ),
                       Hero(
-                        tag: book.author,
+                        tag: '${book.author}$heroSuffix',
                         child: Material(
                           color: Colors.transparent,
                           child: Text(

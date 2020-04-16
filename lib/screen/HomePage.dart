@@ -8,7 +8,6 @@ import 'package:library_flutter_app/widget/HomePageAppBar.dart';
 import 'package:provider/provider.dart';
 
 import 'AboutPage.dart';
-import 'BookDetailPage.dart';
 
 class HomePage extends StatefulWidget {
 
@@ -99,15 +98,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                               padding: EdgeInsets.only(left: index == 0 ? 30 : 15, right: index == provider.books.length - 1 ? 30 : 15),
                               child: Provider(
                                 create: (ctx) => provider.books[index],
-                                child: Material(
-                                  color: Colors.transparent,
-                                  child: InkWell(
-                                    onTap: () {
-                                      Navigator.of(context).pushNamed(BookDetailPage.routeName, arguments: index);
-                                    },
-                                    child: BooksListItem(),
-                                  ),
-                                ),
+                                child: BooksListItem(),
                               )
                             );
                           },
