@@ -3,12 +3,13 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:library_flutter_app/helper/CustomColors.dart';
 import 'package:library_flutter_app/provider/BooksProvider.dart';
 import 'package:library_flutter_app/provider/CartProvider.dart';
-import 'package:library_flutter_app/widget/BlackButton.dart';
-import 'package:library_flutter_app/widget/BookPedestal.dart';
-import 'package:library_flutter_app/widget/CustomAppBar.dart';
-import 'package:library_flutter_app/widget/DotsIcon.dart';
 import 'package:library_flutter_app/widget/FillBar.dart';
+import 'package:library_flutter_app/widget/pedestal/BookPedestal.dart';
 import 'package:provider/provider.dart';
+
+import 'file:///E:/Projekty/Flutter/library_flutter_app/lib/widget/appbar/CustomAppBar.dart';
+import 'file:///E:/Projekty/Flutter/library_flutter_app/lib/widget/button/BlackButton.dart';
+import 'file:///E:/Projekty/Flutter/library_flutter_app/lib/widget/icons/DotsIcon.dart';
 
 class BookDetailPage extends StatelessWidget {
   static const routeName = '/bookDetailPage';

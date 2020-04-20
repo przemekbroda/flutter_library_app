@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:library_flutter_app/helper/CustomColors.dart';
 import 'package:library_flutter_app/provider/CartProvider.dart';
-import 'package:library_flutter_app/widget/CartListItem.dart';
-import 'package:library_flutter_app/widget/CustomAppBar.dart';
 import 'package:provider/provider.dart';
+
+import 'file:///E:/Projekty/Flutter/library_flutter_app/lib/widget/appbar/CustomAppBar.dart';
+import 'file:///E:/Projekty/Flutter/library_flutter_app/lib/widget/list_item/CartListItem.dart';
 
 class CartPage extends StatefulWidget {
 

@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:library_flutter_app/helper/CustomColors.dart';
 
-import 'BoxesIcon.dart';
+import '../icons/BoxesIcon.dart';
 
 class HomePageAppBar extends StatelessWidget {
   @override

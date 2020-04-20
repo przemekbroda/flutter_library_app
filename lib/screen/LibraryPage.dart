@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:library_flutter_app/helper/CustomColors.dart';
-import 'package:library_flutter_app/widget/CustomAppBar.dart';
+
+import 'file:///E:/Projekty/Flutter/library_flutter_app/lib/widget/appbar/CustomAppBar.dart';
 
 class LibraryPage extends StatelessWidget {
   @override

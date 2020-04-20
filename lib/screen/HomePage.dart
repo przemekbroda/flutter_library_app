@@ -3,9 +3,10 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:library_flutter_app/helper/CustomColors.dart';
 import 'package:library_flutter_app/provider/BooksProvider.dart';
 import 'package:library_flutter_app/widget/BooksCard.dart';
-import 'package:library_flutter_app/widget/BooksListItem.dart';
-import 'package:library_flutter_app/widget/HomePageAppBar.dart';
 import 'package:provider/provider.dart';
+
+import 'file:///E:/Projekty/Flutter/library_flutter_app/lib/widget/appbar/HomePageAppBar.dart';
+import 'file:///E:/Projekty/Flutter/library_flutter_app/lib/widget/list_item/BooksListItem.dart';
 
 import 'AboutPage.dart';
 

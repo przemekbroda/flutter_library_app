@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:library_flutter_app/helper/CustomColors.dart';
 
-import 'FillBar.dart';
+import '../FillBar.dart';
 
 class DotsAndFillBar extends StatelessWidget {
   @override

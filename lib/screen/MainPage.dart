@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:library_flutter_app/helper/CustomColors.dart';
 import 'package:library_flutter_app/provider/NavigationProvider.dart';
 import 'package:library_flutter_app/widget/AnimatedFadeIndexedStack.dart';
-import 'package:library_flutter_app/widget/BottomNavBar.dart';
 import 'package:provider/provider.dart';
+
+import 'file:///E:/Projekty/Flutter/library_flutter_app/lib/widget/bottom_nav_bar/BottomNavBar.dart';
 
 
 class MainPage extends StatefulWidget {

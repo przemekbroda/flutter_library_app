@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'Pedestal.dart';
 
+
 class BookPedestal extends StatelessWidget {
 
   final ImageProvider image;

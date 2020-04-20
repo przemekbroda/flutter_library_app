@@ -1,11 +1,11 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 import 'package:library_flutter_app/helper/CustomColors.dart';
 import 'package:library_flutter_app/provider/NavigationProvider.dart';
-import 'dart:math' as math;
-
 import 'package:provider/provider.dart';
 
-import 'Badge.dart';
+import '../Badge.dart';
 
 class BottomNavBar extends StatefulWidget {
 
@@ -30,7 +30,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
       clipper: BottomNavBarClipper(borderRadius: widget.borderRadius),
       child: Container(
         height: widget.navbarHeight,
-        alignment: Alignment(0, 0.5),
+        alignment: Alignment(0, 0.75),
         decoration: BoxDecoration(
           color: CustomColors.black,
         ),
@@ -50,24 +50,25 @@ class _BottomNavBarState extends State<BottomNavBar> {
             Provider.of<NavigationProvider>(context, listen: false).setCurrentPage(index);
           },
           items: [
-            BottomNavigationBarItem(
-              icon: Container(height: 35, child: Icon(Icons.home)),
-              title: Text('Home'),
-            ),
-            BottomNavigationBarItem(
-              icon: Container(height: 35, child: Icon(Icons.search)),
-              title: Text('Search'),
-            ),
-            BottomNavigationBarItem(
-              icon: Container(height: 35, child: Icon(Icons.book)),
-              title: Text('Library'),
-            ),
-            BottomNavigationBarItem(
-              icon: Badge(child: Icon(Icons.shopping_cart), value: '1', color: Colors.amber,),
-              title: Text('Cart'),
-            ),
+            getNavBarItem(Icon(Icons.home), Text('Home')),
+            getNavBarItem(Icon(Icons.search), Text('Search')),
+            getNavBarItem(Icon(Icons.book), Text('Library')),
+            getNavBarItem(Badge(child: Icon(Icons.shopping_cart), value: '1', color: Colors.amber), Text('Cart')),
           ],
         ),
+      ),
+    );
+  }
+
+  BottomNavigationBarItem getNavBarItem(Widget icon, Text text) {
+    return BottomNavigationBarItem(
+      icon: Padding(
+        padding: const EdgeInsets.only(top: 5.0, bottom: 5.0),
+        child: Container(height: 30, child: icon),
+      ),
+      title: Padding(
+        padding: const EdgeInsets.only(bottom: 10.0),
+        child: text,
       ),
     );
   }

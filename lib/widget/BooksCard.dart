@@ -2,10 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:library_flutter_app/helper/CustomColors.dart';
-import 'package:library_flutter_app/widget/BookPedestal.dart';
+import 'package:library_flutter_app/widget/pedestal/BookPedestal.dart';
 
-import 'DotsIcon.dart';
 import 'FillBar.dart';
+import 'icons/DotsIcon.dart';
 
 class BooksCard extends StatelessWidget {
 

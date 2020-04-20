@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:library_flutter_app/helper/CustomColors.dart';
-import 'package:library_flutter_app/widget/BlackButton.dart';
-import 'package:library_flutter_app/widget/CustomAppBar.dart';
-import 'package:library_flutter_app/widget/DotsAndFillBar.dart';
+
+import 'file:///E:/Projekty/Flutter/library_flutter_app/lib/widget/appbar/CustomAppBar.dart';
+import 'file:///E:/Projekty/Flutter/library_flutter_app/lib/widget/button/BlackButton.dart';
+import 'file:///E:/Projekty/Flutter/library_flutter_app/lib/widget/icons/DotsAndFillBar.dart';
 
 class AboutPage extends StatelessWidget {
   static const routeName = '/aboutPage';
