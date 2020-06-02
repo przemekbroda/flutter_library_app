@@ -9,10 +9,18 @@ class NavigationProvider with ChangeNotifier {
   var pageIndex = 0;
 
   List<Widget> pages = [
-    HomePage(),
-    SearchPage(),
-    LibraryPage(),
-    CartPage(),
+    HomePage(
+      key: PageStorageKey('homePage'),
+    ),
+    SearchPage(
+      key: PageStorageKey('searchPage'),
+    ),
+    LibraryPage(
+      key: PageStorageKey('libraryPage'),
+    ),
+    CartPage(
+      key: PageStorageKey('cartPage'),
+    ),
   ];
 
   void setCurrentPage(pageIndex) {

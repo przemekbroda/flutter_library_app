@@ -53,7 +53,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
             getNavBarItem(Icon(Icons.home), Text('Home')),
             getNavBarItem(Icon(Icons.search), Text('Search')),
             getNavBarItem(Icon(Icons.book), Text('Library')),
-            getNavBarItem(Badge(child: Icon(Icons.shopping_cart), value: '1', color: Colors.amber), Text('Cart')),
+            getNavBarItem(Badge(child: Icon(Icons.shopping_cart), color: Colors.amber), Text('Cart')),
           ],
         ),
       ),

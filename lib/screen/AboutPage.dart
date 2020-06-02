@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:library_flutter_app/helper/CustomColors.dart';
+import 'package:library_flutter_app/widget/appbar/CustomAppBar.dart';
+import 'package:library_flutter_app/widget/button/BlackButton.dart';
+import 'package:library_flutter_app/widget/icons/DotsAndFillBar.dart';
 
-import 'file:///E:/Projekty/Flutter/library_flutter_app/lib/widget/appbar/CustomAppBar.dart';
-import 'file:///E:/Projekty/Flutter/library_flutter_app/lib/widget/button/BlackButton.dart';
-import 'file:///E:/Projekty/Flutter/library_flutter_app/lib/widget/icons/DotsAndFillBar.dart';
 
 class AboutPage extends StatelessWidget {
   static const routeName = '/aboutPage';
@@ -76,7 +76,7 @@ class AboutPage extends StatelessWidget {
                   ),
                   SizedBox(height: 70,),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 30),
+                    padding: const EdgeInsets.only(left: 30, right: 30, bottom: 15),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,

@@ -4,23 +4,25 @@ import 'package:library_flutter_app/helper/CustomColors.dart';
 import 'package:library_flutter_app/provider/BooksProvider.dart';
 import 'package:library_flutter_app/provider/CartProvider.dart';
 import 'package:library_flutter_app/widget/FillBar.dart';
+import 'package:library_flutter_app/widget/appbar/CustomAppBar.dart';
+import 'package:library_flutter_app/widget/button/BlackButton.dart';
+import 'package:library_flutter_app/widget/icons/DotsIcon.dart';
 import 'package:library_flutter_app/widget/pedestal/BookPedestal.dart';
 import 'package:provider/provider.dart';
 
-import 'file:///E:/Projekty/Flutter/library_flutter_app/lib/widget/appbar/CustomAppBar.dart';
-import 'file:///E:/Projekty/Flutter/library_flutter_app/lib/widget/button/BlackButton.dart';
-import 'file:///E:/Projekty/Flutter/library_flutter_app/lib/widget/icons/DotsIcon.dart';
 
 class BookDetailPage extends StatelessWidget {
   static const routeName = '/bookDetailPage';
 
   @override
   Widget build(BuildContext context) {
-    var arguments = (ModalRoute.of(context).settings.arguments as Map<String, dynamic>);
+    var arguments =
+        (ModalRoute.of(context).settings.arguments as Map<String, dynamic>);
     var bookId = arguments['bookId'] as int;
     var heroSuffix = arguments['heroSuffix'];
 
-    var book = Provider.of<BooksProvider>(context, listen: false).getBookById(bookId);
+    var book =
+        Provider.of<BooksProvider>(context, listen: false).getBookById(bookId);
 
     return Scaffold(
       backgroundColor: CustomColors.backgroundColor,
@@ -150,16 +152,13 @@ class BookDetailPage extends StatelessWidget {
                             } else {
                               provider.addToCart(book);
                             }
-                          }, child:
-                              Consumer<CartProvider>(builder: (_, cart, child) {
+                          }, child: Consumer<CartProvider>(builder: (_, cart, child) {
                             var isInCart = cart.isInCart(book);
 
                             return AnimatedSwitcher(
                               duration: Duration(milliseconds: 100),
                               child: Text(
-                                cart.isInCart(book)
-                                    ? 'Remove from cart'
-                                    : 'Add to cart',
+                                cart.isInCart(book) ? 'Remove from cart' : 'Add to cart',
                                 key: ValueKey(isInCart),
                                 style: TextStyle(
                                     color: Colors.white,

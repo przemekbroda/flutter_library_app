@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:library_flutter_app/helper/CustomColors.dart';
 import 'package:library_flutter_app/provider/NavigationProvider.dart';
-import 'package:library_flutter_app/widget/AnimatedFadeIndexedStack.dart';
+import 'package:library_flutter_app/widget/bottom_nav_bar/BottomNavBar.dart';
 import 'package:provider/provider.dart';
-
-import 'file:///E:/Projekty/Flutter/library_flutter_app/lib/widget/bottom_nav_bar/BottomNavBar.dart';
 
 
 class MainPage extends StatefulWidget {
@@ -25,7 +23,6 @@ class _MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       body: Stack(children: <Widget>[
         Container(
@@ -34,10 +31,11 @@ class _MainPageState extends State<MainPage> {
           height: MediaQuery.of(context).size.height - _bottomNavbarHeight + _bottomNavbarRadius,
           child: Consumer<NavigationProvider>(
             builder: (_, nav, child) {
-              return AnimatedFadeIndexedStack(
-                index: Provider.of<NavigationProvider>(context).pageIndex,
-                children: Provider.of<NavigationProvider>(context).pages,
-              );
+              return nav.pages[nav.pageIndex];
+//              return AnimatedFadeIndexedStack(
+//                index: nav.pageIndex,
+//                children: nav.pages,
+//              );
             },
           ),
         ),

@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:library_flutter_app/helper/CustomColors.dart';
 import 'package:library_flutter_app/provider/CartProvider.dart';
+import 'package:library_flutter_app/widget/appbar/CustomAppBar.dart';
+import 'package:library_flutter_app/widget/list_item/CartListItem.dart';
 import 'package:provider/provider.dart';
 
-import 'file:///E:/Projekty/Flutter/library_flutter_app/lib/widget/appbar/CustomAppBar.dart';
-import 'file:///E:/Projekty/Flutter/library_flutter_app/lib/widget/list_item/CartListItem.dart';
+
 
 class CartPage extends StatefulWidget {
 
@@ -15,10 +16,16 @@ class CartPage extends StatefulWidget {
   _CartPageState createState() => _CartPageState();
 }
 
-class _CartPageState extends State<CartPage> {
+class _CartPageState extends State<CartPage> with AutomaticKeepAliveClientMixin{
+
+  @override
+  bool get wantKeepAlive => true;
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
+
+    print("build ");
     return Scaffold(
       backgroundColor: CustomColors.backgroundColor,
       body: Center(

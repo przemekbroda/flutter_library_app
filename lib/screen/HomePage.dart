@@ -3,10 +3,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:library_flutter_app/helper/CustomColors.dart';
 import 'package:library_flutter_app/provider/BooksProvider.dart';
 import 'package:library_flutter_app/widget/BooksCard.dart';
+import 'package:library_flutter_app/widget/appbar/HomePageAppBar.dart';
+import 'package:library_flutter_app/widget/list_item/BooksListItem.dart';
 import 'package:provider/provider.dart';
-
-import 'file:///E:/Projekty/Flutter/library_flutter_app/lib/widget/appbar/HomePageAppBar.dart';
-import 'file:///E:/Projekty/Flutter/library_flutter_app/lib/widget/list_item/BooksListItem.dart';
 
 import 'AboutPage.dart';
 
@@ -18,26 +17,38 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
+class _HomePageState extends State<HomePage> with TickerProviderStateMixin, AutomaticKeepAliveClientMixin {
 
   AnimationController _animationController;
   Animation<double> _offsetAnimation;
 
+  bool _isCardUp = false;
+
   void onCardDragUp() {
     _animationController.forward();
+    setState(() {
+      _isCardUp = true;
+    });
   }
 
   void onCardDragDown() {
     _animationController.reverse();
+    setState(() {
+      _isCardUp = false;
+    });
   }
 
   @override
   void initState() {
     _animationController = AnimationController(vsync: this, duration: Duration(milliseconds: 300));
+    _animationController.value = _isCardUp ? 1.0 : 0.0;
     _offsetAnimation = Tween<double>(begin: 235, end: 0).animate(CurvedAnimation(parent: _animationController, curve: Curves.easeInOut));
 
     super.initState();
   }
+
+  @override
+  bool get wantKeepAlive => true;
 
   @override
   void dispose() {
@@ -46,11 +57,11 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   }
 
 
-
   @override
   Widget build(BuildContext context) {
+    super.build(context);
+    print(_isCardUp);
     var provider = Provider.of<BooksProvider>(context, listen: false);
-
     return Scaffold(
       backgroundColor: CustomColors.backgroundColor,
       body: Stack(

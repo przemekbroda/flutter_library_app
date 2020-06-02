@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:library_flutter_app/widget/pedestal/Pedestal.dart';
 
-import 'Pedestal.dart';
 
 
 class BookPedestal extends StatelessWidget {

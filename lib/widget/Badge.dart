@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:library_flutter_app/helper/CustomColors.dart';
 import 'package:library_flutter_app/provider/CartProvider.dart';
 import 'package:provider/provider.dart';
 
-import '../helper/CustomColors.dart';
 
 class Badge extends StatelessWidget {
 
   final Widget child;
   final Color color;
-  final String value;
 
 
-  Badge({@required this.child, @required this.color, @required this.value});
+  Badge({@required this.child, @required this.color});
 
   @override
   Widget build(BuildContext context) {
