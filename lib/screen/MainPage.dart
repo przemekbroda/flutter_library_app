@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:library_flutter_app/helper/CustomColors.dart';
 import 'package:library_flutter_app/provider/NavigationProvider.dart';
+import 'package:library_flutter_app/widget/AnimatedFadeIndexedStack.dart';
 import 'package:library_flutter_app/widget/bottom_nav_bar/BottomNavBar.dart';
 import 'package:provider/provider.dart';
 
@@ -31,11 +32,10 @@ class _MainPageState extends State<MainPage> {
           height: MediaQuery.of(context).size.height - _bottomNavbarHeight + _bottomNavbarRadius,
           child: Consumer<NavigationProvider>(
             builder: (_, nav, child) {
-              return nav.pages[nav.pageIndex];
-//              return AnimatedFadeIndexedStack(
-//                index: nav.pageIndex,
-//                children: nav.pages,
-//              );
+              return AnimatedFadeIndexedStack(
+                index: nav.pageIndex,
+                children: nav.pages,
+              );
             },
           ),
         ),
