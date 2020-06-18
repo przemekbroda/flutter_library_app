@@ -18,9 +18,8 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  final _bottomNavbarHeight = 135.0;
+  final _bottomNavbarHeight = 150.0;
   final _bottomNavbarRadius = 46.0;
-
 
   @override
   Widget build(BuildContext context) {

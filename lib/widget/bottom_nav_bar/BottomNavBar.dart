@@ -30,7 +30,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
       clipper: BottomNavBarClipper(borderRadius: widget.borderRadius),
       child: Container(
         height: widget.navbarHeight,
-        alignment: Alignment(0, 0.75),
+        alignment: Alignment(0, 1),
         decoration: BoxDecoration(
           color: CustomColors.black,
         ),
