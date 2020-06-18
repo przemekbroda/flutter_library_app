@@ -63,7 +63,6 @@ class _HomePageState extends State<HomePage>
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    print(_isCardUp);
     var provider = Provider.of<BooksProvider>(context, listen: false);
     return Scaffold(
       backgroundColor: CustomColors.backgroundColor,

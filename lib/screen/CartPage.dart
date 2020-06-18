@@ -24,8 +24,6 @@ class _CartPageState extends State<CartPage> with AutomaticKeepAliveClientMixin{
   @override
   Widget build(BuildContext context) {
     super.build(context);
-
-    print("build ");
     return Scaffold(
       backgroundColor: CustomColors.backgroundColor,
       body: Center(
