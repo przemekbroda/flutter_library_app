@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:library_flutter_app/helper/CustomColors.dart';
 import 'package:library_flutter_app/provider/NavigationProvider.dart';
@@ -18,8 +20,14 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  final _bottomNavbarHeight = 150.0;
+  double _bottomNavbarHeight;
   final _bottomNavbarRadius = 46.0;
+
+  @override
+  void initState() {
+    _bottomNavbarHeight = Platform.isAndroid ? 135.0 : 160.0;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
