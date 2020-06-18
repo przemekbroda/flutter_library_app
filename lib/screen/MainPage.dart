@@ -26,7 +26,7 @@ class _MainPageState extends State<MainPage> {
 
   @override
   void initState() {
-    _bottomNavbarHeight = Platform.isAndroid ? 135.0 : 150.0;
+    _bottomNavbarHeight = Platform.isAndroid ? 135.0 : 160.0;
     super.initState();
   }
 
