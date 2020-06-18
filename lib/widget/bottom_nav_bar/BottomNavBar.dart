@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
@@ -30,7 +31,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
       clipper: BottomNavBarClipper(borderRadius: widget.borderRadius),
       child: Container(
         height: widget.navbarHeight,
-        alignment: Alignment(0, 1),
+        alignment: Alignment(0, Platform.isAndroid ? 0.75 : 1.0),
         decoration: BoxDecoration(
           color: CustomColors.black,
         ),
