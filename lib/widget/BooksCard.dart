@@ -18,6 +18,8 @@ class BooksCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 280,
+      width: double.infinity,
       decoration: BoxDecoration(
           color: Colors.white,
           boxShadow: [

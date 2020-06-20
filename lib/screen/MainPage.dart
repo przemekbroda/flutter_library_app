@@ -20,12 +20,11 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  double _bottomNavbarHeight;
+  double _bottomNavbarHeight = 135.0;
   final _bottomNavbarRadius = 46.0;
 
   @override
   void initState() {
-    _bottomNavbarHeight = Platform.isAndroid ? 135.0 : 160.0;
     super.initState();
   }
 

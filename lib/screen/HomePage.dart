@@ -154,13 +154,9 @@ class _HomePageState extends State<HomePage>
               animation: _animationController,
               builder: (ctx, child) => Transform.translate(
                 offset: Offset(0, _offsetAnimation.value),
-                child: Container(
-                  height: 280,
-                  width: double.infinity,
-                  child: BooksCard(
-                    onDragDown: this.onCardDragDown,
-                    onDragUp: this.onCardDragUp,
-                  ),
+                child: BooksCard(
+                  onDragDown: this.onCardDragDown,
+                  onDragUp: this.onCardDragUp,
                 ),
               ),
             ),
@@ -180,8 +176,8 @@ class _HomePageState extends State<HomePage>
         },
         child: BackdropFilter(
           filter: ImageFilter.blur(
-              sigmaX: 2.0 * 1.0 - math.min(_offsetAnimation.value, 235) / 235,
-              sigmaY: 2.0 * 1.0 - math.min(_offsetAnimation.value, 235) / 235
+              sigmaX: 235 / 60 - math.min(_offsetAnimation.value, 235) / 60,
+              sigmaY: 235 / 60 - math.min(_offsetAnimation.value, 235) / 60,
           ),
           child: Opacity(
             opacity: 1.0 - math.min(_offsetAnimation.value, 235) / 235,
