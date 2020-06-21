@@ -48,23 +48,20 @@ class BooksCard extends StatelessWidget {
                 child: Material(
                   color: Colors.transparent,
                   child: Padding(
-                    padding: const EdgeInsets.only(left: 120, right: 120, top: 16, bottom: 20),
-                    child: InkWell(
-                      borderRadius: BorderRadius.circular(100),
-                      child: Container(
-                        height: 5,
-                        width: 30,
-                        decoration: BoxDecoration(
-                          color: Colors.grey.withOpacity(0.4),
-                          borderRadius: BorderRadius.circular(30),
-                        ),
+                    padding: const EdgeInsets.only(left: 120, right: 120, top: 17, bottom: 17),
+                    child: Container(
+                      height: 5,
+                      width: 30,
+                      decoration: BoxDecoration(
+                        color: Colors.grey.withOpacity(0.4),
+                        borderRadius: BorderRadius.circular(30),
                       ),
                     ),
                   ),
                 ),
               ),
             ),
-            Text('My books', style: GoogleFonts.abrilFatface(color: CustomColors.black, fontSize: 20),),
+            Text('My books', style: GoogleFonts.abrilFatface(color: CustomColors.black, fontSize: 21),),
             SizedBox(height: 18,),
             Expanded(
               child: Row(
