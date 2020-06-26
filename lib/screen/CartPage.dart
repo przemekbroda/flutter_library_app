@@ -34,8 +34,7 @@ class _CartPageState extends State<CartPage> with AutomaticKeepAliveClientMixin{
             ),
             Expanded(
               child: Consumer<CartProvider>(
-                builder: (_, provider, ___) => ListView.separated(
-                  separatorBuilder: (_, __) => Divider(),
+                builder: (_, provider, ___) => ListView.builder(
                   itemCount: provider.cart.length,
                   itemBuilder: (_, index) => CartListItem(book: provider.cart.values.toList()[index],)
                 ),
