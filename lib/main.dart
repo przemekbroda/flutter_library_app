@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:library_flutter_app/helper/CustomColors.dart';
 import 'package:library_flutter_app/provider/BooksProvider.dart';
 import 'package:library_flutter_app/provider/CartProvider.dart';
 import 'package:library_flutter_app/provider/NavigationProvider.dart';
@@ -11,6 +12,11 @@ import 'package:provider/provider.dart';
 void main() {
   runApp(MyApp());
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitDown, DeviceOrientation.portraitUp]);
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+    statusBarIconBrightness: Brightness.dark,
+    statusBarBrightness: Brightness.dark,
+    systemNavigationBarColor: CustomColors.black
+  ));
 }
 
 class MyApp extends StatelessWidget {
