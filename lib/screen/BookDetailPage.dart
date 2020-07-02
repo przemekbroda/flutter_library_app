@@ -10,7 +10,6 @@ import 'package:library_flutter_app/widget/icons/DotsIcon.dart';
 import 'package:library_flutter_app/widget/pedestal/BookPedestal.dart';
 import 'package:provider/provider.dart';
 
-
 class BookDetailPage extends StatelessWidget {
   static const routeName = '/bookDetailPage';
 
@@ -26,39 +25,43 @@ class BookDetailPage extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: CustomColors.backgroundColor,
-      body: Column(
-        children: <Widget>[
-          CustomAppBar(
-            leading: InkWell(
-              borderRadius: BorderRadius.circular(40),
-              onTap: () {
-                Navigator.of(context).pop();
-              },
+      appBar: CustomAppBar(
+        leading: InkWell(
+          borderRadius: BorderRadius.circular(40),
+          onTap: () {
+            Navigator.of(context).pop();
+          },
+          child: Container(
+            height: 60,
+            width: 60,
+            child: Center(
               child: Icon(
                 Icons.arrow_back,
                 size: 25,
               ),
             ),
-            trailing: InkWell(
-              borderRadius: BorderRadius.circular(30),
-              onTap: () {},
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 7, vertical: 3),
-                child: Container(
-                  height: 15,
-                  child: FittedBox(
-                    child: DotsIcon(
-                      dotsColor: CustomColors.black,
-                    ),
-                  ),
-                ),
+          ),
+        ),
+        trailing: InkWell(
+          borderRadius: BorderRadius.circular(30),
+          onTap: () {},
+          child: Container(
+            height: 60,
+            width: 60,
+            child: Center(
+              child: DotsIcon(
+                dotsColor: CustomColors.black,
               ),
             ),
-            center: Text(
-              'Detail Book',
-              style: GoogleFonts.abrilFatface(fontSize: 18),
-            ),
           ),
+        ),
+        center: Text(
+          'Detail Book',
+          style: GoogleFonts.abrilFatface(fontSize: 18),
+        ),
+      ),
+      body: Column(
+        children: <Widget>[
           Expanded(
             child: ScrollConfiguration(
               behavior: ScrollBehavior(),
@@ -152,13 +155,16 @@ class BookDetailPage extends StatelessWidget {
                             } else {
                               provider.addToCart(book);
                             }
-                          }, child: Consumer<CartProvider>(builder: (_, cart, child) {
+                          }, child:
+                              Consumer<CartProvider>(builder: (_, cart, child) {
                             var isInCart = cart.isInCart(book);
 
                             return AnimatedSwitcher(
                               duration: Duration(milliseconds: 100),
                               child: Text(
-                                cart.isInCart(book) ? 'Remove from cart' : 'Add to cart',
+                                cart.isInCart(book)
+                                    ? 'Remove from cart'
+                                    : 'Add to cart',
                                 key: ValueKey(isInCart),
                                 style: TextStyle(
                                     color: Colors.white,

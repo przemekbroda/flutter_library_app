@@ -8,7 +8,8 @@ class DotsIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 40,
+      height: 15,
+      width: 15,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
@@ -21,8 +22,8 @@ class DotsIcon extends StatelessWidget {
 
   Widget _dot() {
     return Container(
-        width: 12,
-        height: 12,
+        width: 5,
+        height: 5,
         decoration: BoxDecoration(
           color: dotsColor,
           borderRadius: BorderRadius.circular(100),

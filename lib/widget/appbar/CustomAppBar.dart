@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class CustomAppBar extends StatelessWidget {
+class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   final Widget center;
   final Widget trailing;
@@ -18,7 +18,7 @@ class CustomAppBar extends StatelessWidget {
         height: 60,
         width: double.infinity,
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 30),
+          padding: EdgeInsets.symmetric(horizontal: 15),
           child: Stack(
             children: <Widget>[
               Align(alignment: Alignment.centerLeft, child: leading ?? SizedBox()),
@@ -30,4 +30,11 @@ class CustomAppBar extends StatelessWidget {
       ),
     );
   }
+
+  @override
+  Size get preferredSize {
+    return Size(double.infinity, 60);
+  }
+
+
 }

@@ -11,6 +11,7 @@ import 'package:provider/provider.dart';
 
 void main() {
   runApp(MyApp());
+
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitDown, DeviceOrientation.portraitUp]);
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
     statusBarIconBrightness: Brightness.dark,

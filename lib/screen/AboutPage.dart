@@ -13,21 +13,41 @@ class AboutPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: CustomColors.backgroundColor,
-      body: Column(
-        children: <Widget>[
-          CustomAppBar(
-            leading: InkWell(
-              borderRadius: BorderRadius.circular(40),
-              onTap: () {
-                Navigator.of(context).pop();
-              },
-              child: Icon(Icons.arrow_back, size: 25,),
-            ),
-            trailing: Text(
-              'Skip',
-              style: GoogleFonts.abrilFatface(color: CustomColors.grayText, fontSize: 18),
+      appBar: CustomAppBar(
+        leading: InkWell(
+          borderRadius: BorderRadius.circular(40),
+          onTap: () {
+            Navigator.of(context).pop();
+          },
+          child: Container(
+            height: 60,
+            width: 60,
+            child: Center(
+              child: Icon(
+                Icons.arrow_back,
+                size: 25,
+              ),
             ),
           ),
+        ),
+        trailing: InkWell(
+          borderRadius: BorderRadius.circular(40),
+          onTap: () {
+          },
+          child: Container(
+            height: 60,
+            width: 60,
+            child: Center(
+              child: Text(
+                'Skip',
+                style: GoogleFonts.abrilFatface(color: CustomColors.grayText, fontSize: 18),
+              ),
+            ),
+          ),
+        ),
+      ),
+      body: Column(
+        children: <Widget>[
           Expanded(
             child: SingleChildScrollView(
               child: Column(
