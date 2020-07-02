@@ -64,105 +64,110 @@ class _HomePageState extends State<HomePage>
   Widget build(BuildContext context) {
     super.build(context);
     var provider = Provider.of<BooksProvider>(context, listen: false);
-    return Scaffold(
-      backgroundColor: CustomColors.backgroundColor,
-      appBar: HomePageAppBar(),
-      body: Stack(
-        children: <Widget>[
-          Column(
+    return Stack(
+      children: [
+        Scaffold(
+          backgroundColor: CustomColors.backgroundColor,
+          appBar: HomePageAppBar(),
+          body: Stack(
             children: <Widget>[
-              Expanded(
-                child: SingleChildScrollView(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    children: <Widget>[
-                      Padding(
-                        padding:
-                            const EdgeInsets.only(left: 30, right: 30, top: 30),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: <Widget>[
-                            Text(
-                              'New arrivals',
-                              style: GoogleFonts.abrilFatface(fontSize: 21),
-                            ),
-                            InkWell(
-                              borderRadius: BorderRadius.circular(20),
-                              onTap: () {
-                                Navigator.of(context)
-                                    .pushNamed(AboutPage.routeName);
-                              },
-                              child: Padding(
-                                padding: const EdgeInsets.only(left: 4.0),
-                                child: Row(
-                                  children: <Widget>[
-                                    Text(
-                                      'View all',
-                                      style: TextStyle(
-                                          fontSize: 14,
-                                          color: CustomColors.yellowText),
-                                    ),
-                                    SizedBox(
-                                      width: 3,
-                                    ),
-                                    Icon(
-                                      Icons.chevron_right,
-                                      size: 18,
-                                      color: CustomColors.yellowText,
-                                    )
-                                  ],
+              Column(
+                children: <Widget>[
+                  Expanded(
+                    child: SingleChildScrollView(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children: <Widget>[
+                          Padding(
+                            padding:
+                                const EdgeInsets.only(left: 30, right: 30, top: 30),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                Text(
+                                  'New arrivals',
+                                  style: GoogleFonts.abrilFatface(fontSize: 21),
                                 ),
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                      Container(
-                        width: double.infinity,
-                        height: 320,
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 20),
-                          child: ListView.builder(
-                            scrollDirection: Axis.horizontal,
-                            itemCount: provider.books.length,
-                            itemBuilder: (ctx, index) {
-                              return Padding(
-                                  padding: EdgeInsets.only(
-                                      left: index == 0 ? 30 : 15,
-                                      right: index == provider.books.length - 1
-                                          ? 30
-                                          : 15),
-                                  child: Provider(
-                                    create: (ctx) => provider.books[index],
-                                    child: BooksListItem(),
-                                  ));
-                            },
+                                InkWell(
+                                  borderRadius: BorderRadius.circular(20),
+                                  onTap: () {
+                                    Navigator.of(context)
+                                        .pushNamed(AboutPage.routeName);
+                                  },
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(left: 4.0),
+                                    child: Row(
+                                      children: <Widget>[
+                                        Text(
+                                          'View all',
+                                          style: TextStyle(
+                                              fontSize: 14,
+                                              color: CustomColors.yellowText),
+                                        ),
+                                        SizedBox(
+                                          width: 3,
+                                        ),
+                                        Icon(
+                                          Icons.chevron_right,
+                                          size: 18,
+                                          color: CustomColors.yellowText,
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
-                        ),
+                          Container(
+                            width: double.infinity,
+                            height: 320,
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 20),
+                              child: ListView.builder(
+                                scrollDirection: Axis.horizontal,
+                                itemCount: provider.books.length,
+                                itemBuilder: (ctx, index) {
+                                  return Padding(
+                                      padding: EdgeInsets.only(
+                                          left: index == 0 ? 30 : 15,
+                                          right: index == provider.books.length - 1
+                                              ? 30
+                                              : 15),
+                                      child: Provider(
+                                        create: (ctx) => provider.books[index],
+                                        child: BooksListItem(),
+                                      ));
+                                },
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
-                ),
-              )
+                    ),
+                  )
+                ],
+              ),
             ],
           ),
-          _bookCardOverlay,
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: AnimatedBuilder(
-              animation: _animationController,
-              builder: (ctx, child) => Transform.translate(
-                offset: Offset(0, _offsetAnimation.value),
-                child: BooksCard(
-                  onDragDown: this.onCardDragDown,
-                  onDragUp: this.onCardDragUp,
-                ),
+        ),
+        _bookCardOverlay,
+        Align(
+          alignment: Alignment.bottomCenter,
+          child: AnimatedBuilder(
+            animation: _animationController,
+            builder: (ctx, child) => Transform.translate(
+              offset: Offset(0, _offsetAnimation.value),
+              child: BooksCard(
+                onDragDown: this.onCardDragDown,
+                onDragUp: this.onCardDragUp,
               ),
             ),
-          )
-        ],
-      ),
+          ),
+        ),
+      ],
+
     );
   }
 
