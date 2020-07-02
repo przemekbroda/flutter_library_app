@@ -66,11 +66,11 @@ class _HomePageState extends State<HomePage>
     var provider = Provider.of<BooksProvider>(context, listen: false);
     return Scaffold(
       backgroundColor: CustomColors.backgroundColor,
+      appBar: HomePageAppBar(),
       body: Stack(
         children: <Widget>[
           Column(
             children: <Widget>[
-              HomePageAppBar(),
               Expanded(
                 child: SingleChildScrollView(
                   child: Column(

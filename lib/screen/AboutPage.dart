@@ -20,8 +20,8 @@ class AboutPage extends StatelessWidget {
             Navigator.of(context).pop();
           },
           child: Container(
-            height: 60,
-            width: 60,
+            height: 50,
+            width: 50,
             child: Center(
               child: Icon(
                 Icons.arrow_back,
@@ -35,8 +35,8 @@ class AboutPage extends StatelessWidget {
           onTap: () {
           },
           child: Container(
-            height: 60,
-            width: 60,
+            height: 50,
+            width: 50,
             child: Center(
               child: Text(
                 'Skip',

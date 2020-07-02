@@ -32,8 +32,8 @@ class BookDetailPage extends StatelessWidget {
             Navigator.of(context).pop();
           },
           child: Container(
-            height: 60,
-            width: 60,
+            height: 50,
+            width: 50,
             child: Center(
               child: Icon(
                 Icons.arrow_back,
@@ -46,8 +46,8 @@ class BookDetailPage extends StatelessWidget {
           borderRadius: BorderRadius.circular(30),
           onTap: () {},
           child: Container(
-            height: 60,
-            width: 60,
+            height: 50,
+            width: 50,
             child: Center(
               child: DotsIcon(
                 dotsColor: CustomColors.black,

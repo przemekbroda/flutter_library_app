@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:library_flutter_app/helper/CustomColors.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
@@ -7,16 +8,19 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Widget trailing;
   final Widget leading;
 
+  final double _appbarWidth = double.infinity;
+  final double _appbarHeight = 60;
+
   CustomAppBar({this.leading, this.center, this.trailing});
 
   @override
   Widget build(BuildContext context) {
-
-    return Padding(
+    return Container(
+      color: CustomColors.backgroundColor,
       padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
       child: Container(
-        height: 60,
-        width: double.infinity,
+        height: _appbarHeight,
+        width: _appbarWidth,
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 15),
           child: Stack(
@@ -33,7 +37,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Size get preferredSize {
-    return Size(double.infinity, 60);
+    return Size(_appbarWidth, _appbarHeight);
   }
 
 
