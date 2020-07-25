@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:library_flutter_app/helper/CustomColors.dart';
 import 'package:library_flutter_app/provider/NavigationProvider.dart';
@@ -46,7 +44,7 @@ class _MainPageState extends State<MainPage> {
           ),
         ),
         Align(
-          alignment: Alignment(0, 1),
+          alignment: Alignment.bottomCenter,
           child: BottomNavBar(onCurrentIndex: () {},navbarHeight: _bottomNavbarHeight, borderRadius: _bottomNavbarRadius)
         ),
       ],),

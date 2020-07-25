@@ -15,23 +15,20 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: CustomColors.backgroundColor,
-      padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
-      child: Container(
-        height: _appbarHeight,
-        width: _appbarWidth,
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 15),
-          child: Stack(
-            children: <Widget>[
-              Align(alignment: Alignment.centerLeft, child: leading ?? SizedBox()),
-              Align(alignment: Alignment.center, child: center ?? SizedBox()),
-              Align(alignment: Alignment.centerRight, child: trailing ?? SizedBox()),
-            ],
-          ),
-        ),
+    return AppBar(
+      automaticallyImplyLeading: true,
+      elevation: 0,
+      backgroundColor: CustomColors.backgroundColor,
+      leading: Padding(
+        padding: const EdgeInsets.only(left: 15),
+        child: leading ?? SizedBox(),
       ),
+      title: center ?? SizedBox(),
+      actions: <Widget>[Padding(
+        padding: const EdgeInsets.only(right: 15),
+        child: trailing ?? SizedBox(),
+      )],
+      centerTitle: true,
     );
   }
 
