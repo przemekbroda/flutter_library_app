@@ -9,13 +9,13 @@ class Pedestal extends CustomPainter {
     var height = size.height / 18;
     var perspectiveHeight = height + height * 1.33;
 
-    var rectPaint = Paint();
-    rectPaint.color = Color.fromRGBO(224, 224, 226, 1.0);
+    var rectPaint = Paint()..color = Color.fromRGBO(224, 224, 226, 1.0);
     canvas.drawRect(Rect.fromCenter(center: Offset(size.width / 2, size.height - height / 2), width: size.width, height: height), rectPaint);
 
-    var deepRectPaint = Paint();
-    deepRectPaint.color = Color.fromRGBO(237, 237, 239, 1.0);
-    deepRectPaint.style = PaintingStyle.fill;
+    var deepRectPaint = Paint()
+      ..color =  Color.fromRGBO(237, 237, 239, 1.0)
+      ..style = PaintingStyle.fill;
+
     var deepRectPath = Path()
     ..moveTo(perspectiveHeight / 2, size.height - perspectiveHeight)
     ..lineTo(size.width - (perspectiveHeight / 2), size.height - perspectiveHeight)

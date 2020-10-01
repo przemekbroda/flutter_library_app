@@ -30,12 +30,10 @@ class _CartPageState extends State<CartPage> with AutomaticKeepAliveClientMixin{
         center: Text('Your Cart', style: GoogleFonts.abrilFatface(fontSize: 18, color: CustomColors.black),),
       ),
       body: Center(
-        child: Expanded(
-          child: Consumer<CartProvider>(
-            builder: (_, provider, ___) => ListView.builder(
-              itemCount: provider.cart.length,
-              itemBuilder: (_, index) => CartListItem(book: provider.cart.values.toList()[index],)
-            ),
+        child: Consumer<CartProvider>(
+          builder: (_, provider, ___) => ListView.builder(
+            itemCount: provider.cart.length,
+            itemBuilder: (_, index) => CartListItem(book: provider.cart.values.toList()[index],)
           ),
         ),
       ),

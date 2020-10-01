@@ -15,7 +15,7 @@ class LibraryPage extends StatelessWidget {
       body: Column(
         children: <Widget>[
           CustomAppBar(
-            center: Text('Library', style: GoogleFonts.abrilFatface(fontSize: 18),),
+            center: Text('Library', style: GoogleFonts.abrilFatface(fontSize: 18, color: CustomColors.black),),
           )
         ],
       ),

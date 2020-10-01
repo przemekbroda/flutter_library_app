@@ -1,5 +1,3 @@
-import 'dart:math' as math;
-
 import 'package:flutter/material.dart';
 import 'package:library_flutter_app/helper/CustomColors.dart';
 import 'package:library_flutter_app/provider/NavigationProvider.dart';
@@ -91,12 +89,12 @@ class BottomNavBarClipper extends CustomClipper<Path> {
       ..arcToPoint(Offset(borderRadius, borderRadius),
           radius: Radius.circular(borderRadius),
           clockwise: false,
-          rotation: math.pi)
+      )
       ..lineTo(size.width - borderRadius, borderRadius)
       ..arcToPoint(Offset(size.width, 0),
           clockwise: false,
           radius: Radius.circular(borderRadius),
-          rotation: math.pi)
+      )
       ..lineTo(size.width, 0)
       ..lineTo(size.width, size.height)
       ..lineTo(0, size.height);
