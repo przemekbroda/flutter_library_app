@@ -32,6 +32,7 @@ class _CartPageState extends State<CartPage> with AutomaticKeepAliveClientMixin{
       body: Center(
         child: Consumer<CartProvider>(
           builder: (_, provider, ___) => ListView.builder(
+            physics: BouncingScrollPhysics(),
             itemCount: provider.cart.length,
             itemBuilder: (_, index) => CartListItem(book: provider.cart.values.toList()[index],)
           ),

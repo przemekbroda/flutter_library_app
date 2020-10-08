@@ -1,4 +1,3 @@
-import 'dart:math' as math;
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
@@ -128,6 +127,7 @@ class _HomePageState extends State<HomePage>
                               child: ListView.builder(
                                 scrollDirection: Axis.horizontal,
                                 itemCount: provider.books.length,
+                                physics: BouncingScrollPhysics(),
                                 itemBuilder: (ctx, index) {
                                   return Padding(
                                       padding: EdgeInsets.only(
@@ -181,11 +181,11 @@ class _HomePageState extends State<HomePage>
         },
         child: BackdropFilter(
           filter: ImageFilter.blur(
-              sigmaX: 235 / 60 - math.min(_offsetAnimation.value, 235) / 60,
-              sigmaY: 235 / 60 - math.min(_offsetAnimation.value, 235) / 60,
+              sigmaX: 235 / 60 - _offsetAnimation.value / 60,
+              sigmaY: 235 / 60 - _offsetAnimation.value / 60,
           ),
           child: Opacity(
-            opacity: 1.0 - math.min(_offsetAnimation.value, 235) / 235,
+            opacity: 1.0 - _offsetAnimation.value / 235,
             child: child,
           ),
         ),
