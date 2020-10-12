@@ -14,55 +14,56 @@ class HomePageAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     var currentDate = new DateTime.now();
 
-    return Container(
-      color: CustomColors.backgroundColor,
-      padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
-      child: Container(
-        width: _appbarWidth,
-        height: _appbarHeight,
-        padding: EdgeInsets.symmetric(horizontal: 30),
-        child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, crossAxisAlignment: CrossAxisAlignment.center, children: <Widget>[
-          Row(
-            children: <Widget>[
-              Text(DateFormat.d().format(currentDate), style: GoogleFonts.abrilFatface(fontSize: 40, color: CustomColors.black),),
-              SizedBox(width: 10,),
-              Column(mainAxisAlignment: MainAxisAlignment.center, crossAxisAlignment: CrossAxisAlignment.start, children: <Widget>[
-                Text(DateFormat.E().format(currentDate), style: GoogleFonts.abrilFatface(color: CustomColors.grayText),),
-                Text(DateFormat('MMMM y').format(currentDate), style: GoogleFonts.abrilFatface(color: CustomColors.grayText,),),
-              ],),
-            ],
-          ),
-          Row(children: <Widget>[
-            Container(
-              width: 18,
-              height: 18,
-              child: FittedBox(
-                child: BoxesIcon(),
-              ),
+    return SafeArea(
+          child: Container(
+        color: CustomColors.backgroundColor,
+        child: Container(
+          width: _appbarWidth,
+          height: _appbarHeight,
+          padding: EdgeInsets.symmetric(horizontal: 30),
+          child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, crossAxisAlignment: CrossAxisAlignment.center, children: <Widget>[
+            Row(
+              children: <Widget>[
+                Text(DateFormat.d().format(currentDate), style: GoogleFonts.abrilFatface(fontSize: 40, color: CustomColors.black),),
+                SizedBox(width: 10,),
+                Column(mainAxisAlignment: MainAxisAlignment.center, crossAxisAlignment: CrossAxisAlignment.start, children: <Widget>[
+                  Text(DateFormat.E().format(currentDate), style: GoogleFonts.abrilFatface(color: CustomColors.grayText),),
+                  Text(DateFormat('MMMM y').format(currentDate), style: GoogleFonts.abrilFatface(color: CustomColors.grayText,),),
+                ],),
+              ],
             ),
-            SizedBox(width: 18,),
-            Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(12),
-                boxShadow: [
-                  BoxShadow(
-                    blurRadius: 15,
-                    color: Colors.black.withOpacity(0.30),
-                    offset: Offset(0, 4)
-                  ),
-                ]
-              ),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(12),
-                child: Container(
-                  height: 41,
-                  width: 41,
-                  child: Image.asset('assets/images/vader.jpeg', fit: BoxFit.cover,),
+            Row(children: <Widget>[
+              Container(
+                width: 18,
+                height: 18,
+                child: FittedBox(
+                  child: BoxesIcon(),
                 ),
               ),
-            )
-          ],)
-        ],),
+              SizedBox(width: 18,),
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12),
+                  boxShadow: [
+                    BoxShadow(
+                      blurRadius: 15,
+                      color: Colors.black.withOpacity(0.30),
+                      offset: Offset(0, 4)
+                    ),
+                  ]
+                ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(12),
+                  child: Container(
+                    height: 41,
+                    width: 41,
+                    child: Image.asset('assets/images/vader.jpeg', fit: BoxFit.cover,),
+                  ),
+                ),
+              )
+            ],)
+          ],),
+        ),
       ),
     );
   }
