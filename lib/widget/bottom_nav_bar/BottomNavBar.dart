@@ -24,43 +24,41 @@ class _BottomNavBarState extends State<BottomNavBar> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: ClipPath(
-        clipBehavior: Clip.antiAlias,
-        clipper: BottomNavBarClipper(borderRadius: widget.borderRadius),
-        child: Container(
-          height: widget.navbarHeight,
-          alignment: Alignment(0, 0.75),
-          decoration: BoxDecoration(
-            color: CustomColors.black,
-          ),
-          width: MediaQuery.of(context).size.width,
-          child: BottomNavigationBar(
-            elevation: 0,
-            currentIndex: _currentIndex,
-            backgroundColor: CustomColors.black,
-            selectedItemColor: Colors.white,
-            unselectedItemColor: Colors.grey,
-            type: BottomNavigationBarType.fixed,
-            selectedFontSize: 11,
-            selectedLabelStyle: TextStyle(),
-            unselectedFontSize: 11,
-            onTap: (index) {
-              setState(() {
-                _currentIndex = index;
-              });
-              Provider.of<NavigationProvider>(context, listen: false)
-                  .setCurrentPage(index);
-            },
-            items: [
-              getNavBarItem(Icon(Icons.home), Text('Home')),
-              getNavBarItem(Icon(Icons.search), Text('Search')),
-              getNavBarItem(Icon(Icons.book), Text('Library')),
-              getNavBarItem(
-                  Badge(child: Icon(Icons.shopping_cart), color: Colors.amber),
-                  Text('Cart')),
-            ],
-          ),
+    return ClipPath(
+      clipBehavior: Clip.antiAlias,
+      clipper: BottomNavBarClipper(borderRadius: widget.borderRadius),
+      child: Container(
+        height: widget.navbarHeight + MediaQuery.of(context).padding.bottom,
+        alignment: Alignment(0, 0.75),
+        decoration: BoxDecoration(
+          color: CustomColors.black,
+        ),
+        width: MediaQuery.of(context).size.width,
+        child: BottomNavigationBar(
+          elevation: 0,
+          currentIndex: _currentIndex,
+          backgroundColor: CustomColors.black,
+          selectedItemColor: Colors.white,
+          unselectedItemColor: Colors.grey,
+          type: BottomNavigationBarType.fixed,
+          selectedFontSize: 11,
+          selectedLabelStyle: TextStyle(),
+          unselectedFontSize: 11,
+          onTap: (index) {
+            setState(() {
+              _currentIndex = index;
+            });
+            Provider.of<NavigationProvider>(context, listen: false)
+                .setCurrentPage(index);
+          },
+          items: [
+            getNavBarItem(Icon(Icons.home), Text('Home')),
+            getNavBarItem(Icon(Icons.search), Text('Search')),
+            getNavBarItem(Icon(Icons.book), Text('Library')),
+            getNavBarItem(
+                Badge(child: Icon(Icons.shopping_cart), color: Colors.amber),
+                Text('Cart')),
+          ],
         ),
       ),
     );

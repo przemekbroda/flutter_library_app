@@ -18,10 +18,11 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage>
-    with TickerProviderStateMixin, AutomaticKeepAliveClientMixin {
+class _HomePageState extends State<HomePage> with TickerProviderStateMixin, AutomaticKeepAliveClientMixin {
   AnimationController _animationController;
   Animation<double> _offsetAnimation;
+  double _maxOffset;
+  bool _isInit = true;
 
   bool _isCardUp = false;
 
@@ -40,14 +41,17 @@ class _HomePageState extends State<HomePage>
   }
 
   @override
-  void initState() {
-    _animationController =
-        AnimationController(vsync: this, duration: Duration(milliseconds: 300));
-    _animationController.value = _isCardUp ? 1.0 : 0.0;
-    _offsetAnimation = Tween<double>(begin: 235, end: 0).animate(
-        CurvedAnimation(parent: _animationController, curve: Curves.easeInOut));
+  void didChangeDependencies() {
+    if (_isInit) {
+      _isInit = false;
+      _maxOffset = 235 - MediaQuery.of(context).padding.bottom;
+      
+      _animationController =AnimationController(vsync: this, duration: Duration(milliseconds: 300));
+      _animationController.value = _isCardUp ? 1.0 : 0.0;
+      _offsetAnimation = Tween<double>(begin: _maxOffset, end: 0).animate(CurvedAnimation(parent: _animationController, curve: Curves.easeInOut));
+    }
 
-    super.initState();
+    super.didChangeDependencies();
   }
 
   @override
@@ -174,18 +178,18 @@ class _HomePageState extends State<HomePage>
   Widget get _bookCardOverlay {
     return AnimatedBuilder(
       animation: _offsetAnimation,
-      builder: (ctx, child) => _offsetAnimation.value < 235
+      builder: (ctx, child) => _offsetAnimation.value < _maxOffset
           ? GestureDetector(
         onTap: () {
           _animationController.reverse();
         },
         child: BackdropFilter(
           filter: ImageFilter.blur(
-              sigmaX: 235 / 60 - _offsetAnimation.value / 60,
-              sigmaY: 235 / 60 - _offsetAnimation.value / 60,
+              sigmaX: _maxOffset / 60 - _offsetAnimation.value / 60,
+              sigmaY: _maxOffset / 60 - _offsetAnimation.value / 60,
           ),
           child: Opacity(
-            opacity: 1.0 - _offsetAnimation.value / 235,
+            opacity: 1.0 - _offsetAnimation.value / _maxOffset,
             child: child,
           ),
         ),

@@ -14,20 +14,13 @@ class AboutPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: CustomColors.backgroundColor,
       appBar: CustomAppBar(
-        leading: InkWell(
-          borderRadius: BorderRadius.circular(40),
-          onTap: () {
+        leading: IconButton(
+          onPressed: () {
             Navigator.of(context).pop();
           },
-          child: Container(
-            height: 50,
-            width: 50,
-            child: Center(
-              child: Icon(
-                Icons.arrow_back,
-                size: 25,
-              ),
-            ),
+          icon: Icon(
+            Icons.arrow_back,
+            color: CustomColors.black,
           ),
         ),
         trailing: InkWell(
