@@ -20,7 +20,8 @@ class Pedestal extends CustomPainter {
     ..moveTo(perspectiveHeight / 2, size.height - perspectiveHeight)
     ..lineTo(size.width - (perspectiveHeight / 2), size.height - perspectiveHeight)
     ..lineTo(size.width, size.height - height)
-    ..lineTo(0, size.height - height);
+    ..lineTo(0, size.height - height)
+    ..close();
 
     canvas.drawPath(deepRectPath, deepRectPaint);
   }
