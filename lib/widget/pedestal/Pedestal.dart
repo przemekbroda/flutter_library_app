@@ -16,6 +16,7 @@ class Pedestal extends CustomPainter {
     var deepRectPaint = Paint();
     deepRectPaint.color = Color.fromRGBO(237, 237, 239, 1.0);
     deepRectPaint.style = PaintingStyle.fill;
+
     var deepRectPath = Path()
     ..moveTo(perspectiveHeight / 2, size.height - perspectiveHeight)
     ..lineTo(size.width - (perspectiveHeight / 2), size.height - perspectiveHeight)
