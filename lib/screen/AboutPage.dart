@@ -43,6 +43,7 @@ class AboutPage extends StatelessWidget {
         children: <Widget>[
           Expanded(
             child: SingleChildScrollView(
+              physics: BouncingScrollPhysics(),
               child: Column(
                 children: <Widget>[
                   SizedBox(

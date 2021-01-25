@@ -42,6 +42,9 @@ class HomePageAppBar extends StatelessWidget implements PreferredSizeWidget {
               ),
               SizedBox(width: 18,),
               Container(
+                width: 41,
+                height: 41,
+                clipBehavior: Clip.antiAlias,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12),
                   boxShadow: [
@@ -52,14 +55,7 @@ class HomePageAppBar extends StatelessWidget implements PreferredSizeWidget {
                     ),
                   ]
                 ),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(12),
-                  child: Container(
-                    height: 41,
-                    width: 41,
-                    child: Image.asset('assets/images/vader.jpeg', fit: BoxFit.cover,),
-                  ),
-                ),
+                child: Image.asset('assets/images/vader.jpeg', fit: BoxFit.cover,),
               )
             ],)
           ],),
